@@ -3,29 +3,30 @@ import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import AddTask from './components/AddTask';
 import SeeTasks from './components/SeeTasks';
 import Summary from './components/Summary';
+import { Fragment } from 'react';
 
 
 function App() {
   return (
   <Router>
-      <>
-        <ul className="App-header">
-          <li>
-            <Link to="/">Summary</Link>
-          </li>
-          <li>
-            <Link to="/SeeTask">See Task</Link>
-          </li>
-          <li>
-            <Link to="/AddTask">Add Task</Link>
-          </li>
-        </ul>
+      <Fragment class='background'>
+        <div class="flex-row">
+          <div>
+            <Link to="/"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Summary</button></Link>
+          </div>
+          <div>
+            <Link to="/SeeTask"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">See Task</button></Link>
+          </div>
+          <div>
+            <Link to="/AddTask"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Task</button></Link>
+          </div>
+        </div>
         <Routes>
               <Route exact path='/' element={< Summary />}></Route>
               <Route exact path='/SeeTask' element={< SeeTasks />}></Route>
               <Route exact path='/AddTask' element={< AddTask />}></Route>
         </Routes>
-      </>
+      </Fragment>
     </Router>
   );
 }
