@@ -1,0 +1,32 @@
+[
+    {
+      "id": "java",
+      "label": "java",
+      "value": 285,
+      "color": "hsl(347, 70%, 50%)"
+    },
+    {
+      "id": "go",
+      "label": "go",
+      "value": 118,
+      "color": "hsl(78, 70%, 50%)"
+    },
+    {
+      "id": "python",
+      "label": "python",
+      "value": 532,
+      "color": "hsl(53, 70%, 50%)"
+    },
+    {
+      "id": "haskell",
+      "label": "haskell",
+      "value": 130,
+      "color": "hsl(147, 70%, 50%)"
+    },
+    {
+      "id": "make",
+      "label": "make",
+      "value": 278,
+      "color": "hsl(359, 70%, 50%)"
+    }
+  ]
