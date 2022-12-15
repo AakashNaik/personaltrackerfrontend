@@ -1,12 +1,15 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, forwardRef, useImperativeHandle} from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 
 
-export default function ListBox({data}) {
-  const [selected, setSelected] = useState(data[0])
+const ListBox = forwardRef((props, _ref)=> {
+  const [selected, setSelected] = useState(props.data[0]);
+  //const selectedref = useRef(selected);
     //console.log(props);
+
+  useImperativeHandle(_ref, ()=>({ getSelection:()=>{return selected}}));
   return (
     <div className='w-64 element'>
       <Listbox value={selected} onChange={setSelected}>
@@ -27,7 +30,7 @@ export default function ListBox({data}) {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {data.map((person, personIdx) => (
+              {props.data.map((person, personIdx) => (
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
@@ -61,4 +64,6 @@ export default function ListBox({data}) {
       </Listbox>
     </div>
   )
-}
+});
+
+export default ListBox;
