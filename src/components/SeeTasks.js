@@ -14,7 +14,7 @@ export default function SeeTasks()
          setmsg(data);
           })},[]);
 
-    useEffect(()=>{console.log('checking',msg);console.log(msg.map((data)=>{return data.topic}))},[msg])
+    //useEffect(()=>{console.log('checking',msg);console.log(msg.map((data)=>{return data.topic}))},[msg])
         
     
     return(
