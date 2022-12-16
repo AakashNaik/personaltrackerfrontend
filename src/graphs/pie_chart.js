@@ -7,8 +7,27 @@ import { ResponsivePie } from '@nivo/pie'
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
+
+var groupBy = function(xs, key) {
+    return xs.reduce(function(rv, x) {
+      x[key] in rv? rv[x[key]]++: rv[x[key]]=1;
+      return rv;
+    }, {});
+  };
+    
+const endResult = (data)=>{
+  
+    let arr = []
+    for (const [key, value] of Object.entries(data)) {
+        arr.push({'id':key,'label':key,'value':value})
+    }
+    return arr;
+         
+  }
 const MyResponsivePie = ({ data /* see data tab */ }) => {
     console.log(data);
+    data = groupBy(data,'topic');
+    data = endResult(data);
     return(<ResponsivePie
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}

@@ -1,27 +1,25 @@
 import MyResponsivePie from '../graphs/pie_chart';
+import MyResponsiveBar from '../graphs/bar_graph';
 import data from '../data/data.json';
 import { useState, useEffect } from 'react';
 
-var groupBy = function(xs, key) {
-  return xs.reduce(function(rv, x) {
-    x[key] in rv? rv[x[key]]++: rv[x[key]]=1;
-    return rv;
-  }, {});
-};
-  
-const endResult = (data)=>{
+const score = (data)=>{
 
-  let arr = []
-  for (const [key, value] of Object.entries(data)) {
-      arr.push({'id':key,'label':key,'value':value})
-  }
-  return arr;
-       
+   let temp=0;
+   data.forEach(d=>{
+    let date = parseInt(d.date.split('/')[0]); 
+    let today = new Date(); 
+    let wgt = Math.E**-(today.getDate()-date);
+    temp+= wgt; })
+    //setcurrscore(temp);
+    return temp;
 }
+
 export default function Summary()
 {
 
     const [statdata,setstatdata] = useState([]);
+    const [currscore, setcurrscore] = useState(0);
     useEffect(()=>{fetch('http://localhost:4001/api/getAll')
     .then((res)=>
           {return res.json();})
@@ -29,14 +27,18 @@ export default function Summary()
         {console.log(data);
          data=data.map((d)=>{ return{'topic':d.topic,'input':d.input,'date':d.date}});
          console.log('data',data);
-         data = groupBy(data,'topic');
-         data = endResult(data);
+         //data = groupBy(data,'topic');
+         //data = endResult(data);
          setstatdata(data);
           })},[]);
 
+
+    useEffect(()=>{setcurrscore(score(statdata))},[statdata])      
     return(
         <div className='maincomp'>
-         <MyResponsivePie data={statdata}/>;
+         <MyResponsivePie data={statdata}/>
+         <div>Current Score: {currscore}</div>
+         <MyResponsiveBar data={statdata}/>
         </div>
     )
 }
