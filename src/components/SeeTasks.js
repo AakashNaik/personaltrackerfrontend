@@ -9,7 +9,7 @@ export default function SeeTasks()
           {return res.json();})
     .then((data) => 
         {console.log(data);
-         data=data.map((d)=>{ return{'topic':d.topic,'input':d.input}});
+         data=data.map((d)=>{ return{'topic':d.topic,'input':d.input,'date':d.date}});
          console.log('data',data);
          setmsg(data);
           })},[]);
@@ -19,7 +19,7 @@ export default function SeeTasks()
     
     return(
         <>
-          <div>{msg.map((data)=>{return <div>{data.input} and {data.topic}</div>})}</div>
+          <div>{msg.map((data)=>{return <div>{data.input} and {data.topic} and {data.date}</div>})}</div>
         </>
     )
 }

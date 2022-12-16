@@ -4,17 +4,20 @@
 import ListBox from '../ui/dropdown';
 import { useRef } from 'react';
 const people = [
-    { name: 'Wade Cooper' },
-    { name: 'Arlene Mccoy' },
-    { name: 'Devon Webb' },
-    { name: 'Tom Cook' },
-    { name: 'Tanya Fox' },
-    { name: 'Hellen Schmidt' },
+    { name: 'react & node'},
+    { name: 'startup' },
+    { name: 'web3' },
+    { name: 'english & speaking' },
+    { name: 'no code/low code tools' },
+    { name: 'aws' },
+    { name: 'other'},
   ]
 
 function handleSubmit(inputref,listref){
 
     const topic = listref.current.getSelection();
+    const current =new Date();
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
     if(topic!=null&& inputref.current!=null)
     {
         fetch("http://localhost:4001/api/post", {
@@ -26,6 +29,7 @@ function handleSubmit(inputref,listref){
             body: JSON.stringify({
                 topic: topic.name,
                 input: inputref.current.value,
+                date:  date,
             }),
             
             // Adding headers to the request
