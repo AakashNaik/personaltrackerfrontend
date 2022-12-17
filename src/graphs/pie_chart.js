@@ -36,6 +36,7 @@ const MyResponsivePie = ({ data /* see data tab */ }) => {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
+        theme = {{textColor:'#FFFFFF',  fontSize:'15px'}}
         borderColor={{
             from: 'color',
             modifiers: [
@@ -46,7 +47,7 @@ const MyResponsivePie = ({ data /* see data tab */ }) => {
             ]
         }}
         arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="#333333"
+        arcLinkLabelsTextColor="#FFFFFF"
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
@@ -136,7 +137,7 @@ const MyResponsivePie = ({ data /* see data tab */ }) => {
                 justify: false,
                 translateX: 0,
                 translateY: 56,
-                itemsSpacing: 0,
+                itemsSpacing: 40,
                 itemWidth: 100,
                 itemHeight: 18,
                 itemTextColor: '#999',

@@ -36,9 +36,13 @@ export default function Summary()
     useEffect(()=>{setcurrscore(score(statdata))},[statdata])      
     return(
         <div className='maincomp'>
+         <div class='shadow-2xl' style={{height:'600px', width:'800px', marginLeft:'50px', display: 'flex', flexWrap: 'wrap'}}>
          <MyResponsivePie data={statdata}/>
+         </div>
          <div>Current Score: {currscore}</div>
+         <div style={{height:'600px'}}>
          <MyResponsiveBar data={statdata}/>
+         </div>
         </div>
     )
 }

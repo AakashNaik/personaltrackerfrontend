@@ -10,9 +10,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0093E9;
-  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-
+  background: #333332;
+  
 }
 
 code {
@@ -27,7 +26,7 @@ code {
 
 .maincomp {
 
-   height: 600px;
+   height: 1000px;
 }
 
 .container {
@@ -42,4 +41,9 @@ code {
 
 .container1 {
    flex-direction :row;
+}
+
+.buttonstyle{
+  margin-left: 2px;
+  margin-right: 2px;
 }

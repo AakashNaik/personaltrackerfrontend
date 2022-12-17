@@ -48,6 +48,7 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => {
         padding={0.3}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
+        theme = {{textColor:'#FFFFFF'}}
         colors={{ scheme: 'nivo' }}
         defs={[
             {
@@ -106,7 +107,7 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'scroe',
+            legend: 'score',
             legendPosition: 'middle',
             legendOffset: -40
         }}

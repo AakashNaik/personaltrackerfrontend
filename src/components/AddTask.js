@@ -52,18 +52,20 @@ export default function AddTask()
     //const dropselection = useRef(null);
     //dropselection.current = inputref.selection.getSelection();
     return(
-    <div className = 'container'>
+    <>
+    <div class = 'shadow-2xl' style={{height:'250px', width:'500px', marginLeft:'400px',marginTop:'100px',alignContent:'center', flexDirection:'column'}}>
         
         <ListBox data={people} ref={listref}/>
         <div className='flex container1'>
-            <div style={{marginLeft:'2rem'}}>
-                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
+            <div style={{marginLeft:'2rem',marginRight:'16px'}}>
+                <label for="first_name" class="block mb-2 text-sm font-medium font-black text-gray-900 dark:text-white">INPUT</label>
                 <input ref={inputref} type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="latest read" required/>
             </div>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=> handleSubmit(inputref,listref)}>
+            <button class="bg-white hover:bg-blue-700 hover:scale-110 hover:transition-all text-black font-bold mt-2 mx-2 py-0.2 px-8 rounded" onClick={()=> handleSubmit(inputref,listref)}>
                Submit
             </button>
         </div>
     </div>
+    </>
     )
 }
